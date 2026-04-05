@@ -245,28 +245,61 @@ export default function App() {
         )}
 
         {!selectedImage ? (
-          <div 
-            className="mt-8 border-2 border-dashed border-zinc-300 rounded-3xl bg-white hover:bg-zinc-50 transition-colors cursor-pointer group"
-            onDrop={handleDrop}
-            onDragOver={handleDragOver}
-            onClick={() => fileInputRef.current?.click()}
-          >
-            <div className="flex flex-col items-center justify-center py-32 px-4 text-center">
-              <div className="w-20 h-20 bg-zinc-100 text-zinc-400 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <Upload size={32} />
-              </div>
-              <h3 className="text-2xl font-semibold mb-2">Upload an image</h3>
-              <p className="text-zinc-500 max-w-sm mx-auto">
-                Drag and drop your blurry photo here, or click to browse. We'll make it crystal clear.
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12 mt-4">
+              <h2 className="text-4xl font-bold tracking-tight text-zinc-900 mb-4">Bring your photos back into focus</h2>
+              <p className="text-lg text-zinc-600 max-w-2xl mx-auto">
+                Use advanced AI to make your blurry, old, or low-resolution images crystal clear in seconds.
               </p>
             </div>
-            <input 
-              type="file" 
-              ref={fileInputRef} 
-              onChange={handleFileChange} 
-              accept="image/*" 
-              className="hidden" 
-            />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm text-center">
+                <div className="w-12 h-12 bg-zinc-100 text-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">1</div>
+                <h3 className="font-semibold text-zinc-900 mb-2">Upload Photo</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  Select or drag & drop any blurry image you want to enhance.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm text-center">
+                <div className="w-12 h-12 bg-zinc-100 text-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">2</div>
+                <h3 className="font-semibold text-zinc-900 mb-2">Restore Image</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  Click the restore button and let our AI sharpen the details.
+                </p>
+              </div>
+              <div className="bg-white p-6 rounded-2xl border border-zinc-200 shadow-sm text-center">
+                <div className="w-12 h-12 bg-zinc-100 text-zinc-900 rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">3</div>
+                <h3 className="font-semibold text-zinc-900 mb-2">Save Result</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  Save the crystal-clear result directly to your Camera Roll or computer.
+                </p>
+              </div>
+            </div>
+
+            <div 
+              className="border-2 border-dashed border-zinc-300 rounded-3xl bg-white hover:bg-zinc-50 transition-colors cursor-pointer group"
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onClick={() => fileInputRef.current?.click()}
+            >
+              <div className="flex flex-col items-center justify-center py-24 px-4 text-center">
+                <div className="w-20 h-20 bg-zinc-100 text-zinc-400 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <Upload size={32} />
+                </div>
+                <h3 className="text-2xl font-semibold mb-2">Upload an image</h3>
+                <p className="text-zinc-500 max-w-sm mx-auto">
+                  Drag and drop your blurry photo here, or click to browse.
+                </p>
+              </div>
+              <input 
+                type="file" 
+                ref={fileInputRef} 
+                onChange={handleFileChange} 
+                accept="image/*" 
+                className="hidden" 
+              />
+            </div>
           </div>
         ) : (
           <div className="space-y-8">
