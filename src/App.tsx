@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI } from '@google/genai';
 import { Upload, Image as ImageIcon, Download, Sparkles, Loader2, AlertCircle } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 declare global {
   interface Window {
@@ -400,6 +401,7 @@ export default function App() {
           </div>
         )}
       </main>
+      <Analytics />
     </div>
   );
 }
